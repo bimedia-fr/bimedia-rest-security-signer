@@ -1,0 +1,14 @@
+{
+  "name": "bimedia-rest-security-signer",
+  "version": "1.0.0",
+  "description": "Implémentation de la sécurité pour les services REST bimedia",
+  "main": "lib/index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Sébastien Boucontet",
+  "license": "BSD-2-Clause"
+}
