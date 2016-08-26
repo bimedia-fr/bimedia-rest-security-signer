@@ -1,0 +1,11 @@
+bimedia-sign {OPTIONS} url
+
+  Sign bimedia request.
+
+   -p, --privatekey   private key FILE.
+   -u, --id   principal id.
+
+
+GLOBAL OPTIONS
+
+  --version     Print the version number and exit.
