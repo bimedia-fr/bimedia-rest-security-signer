@@ -1,5 +1,7 @@
 bimedia-sign {OPTIONS} url
 
+OPTIONS
+
   Sign bimedia request.
 
    -p, --privatekey   private key FILE.
