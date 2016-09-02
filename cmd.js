@@ -5,7 +5,13 @@ var path = require('path');
 
 var minimist = require('minimist');
 var argv = minimist(process.argv.slice(2), {
-    alias: { v: 'version', h: 'help', p: 'privatekey', u: 'id' }
+    alias: { v: 'version',
+            h: 'help',
+            p: 'privatekey',
+            u: 'id',
+            H: 'header',
+            d: 'data',
+            X: 'request' }
 });
 
 
@@ -35,5 +41,19 @@ if (argv.v || argv.version) {
 
 var private = fs.readFileSync(path.resolve(process.cwd(), defined(argv.p, argv.privatekey)));
 var Signer = require('./lib/index.js');
-
-console.log(new Signer(defined(argv.u, argv.id), private).sign(cmd).toCurl());
+var options = {
+    url: cmd,
+    method: defined(argv.X, argv.request, 'GET'),
+    headers: defined(argv.H, argv.header).reduce(function(prev, curr) {
+        var parts = curr.split(':');
+        if (parts[0] && parts[1]) {
+            prev[parts[0]] = parts[1];
+        }
+        return prev;
+    }, {})
+};
+var body = defined(argv.d, argv.data);
+if (body) {
+    options.body = body;
+}
+console.log(new Signer(defined(argv.u, argv.id), private).sign(options).toCurl());

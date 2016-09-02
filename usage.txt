@@ -4,6 +4,9 @@ bimedia-sign {OPTIONS} url
 
    -p, --privatekey   private key FILE.
    -u, --id   principal id.
+   -H, --header   specify http header 
+   -d, --data   specify request body
+   -X, --request specify http method
 
 
 GLOBAL OPTIONS
