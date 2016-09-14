@@ -1,6 +1,6 @@
 {
   "name": "bimedia-rest-security-signer",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Implémentation de la sécurité pour les services REST bimedia",
   "main": "lib/index.js",
   "directories": {
