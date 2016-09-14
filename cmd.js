@@ -48,7 +48,7 @@ var options = {
     headers: (Array.isArray(headers) ? headers: [headers]).reduce(function(prev, curr) {
         var parts = curr.split(':');
         if (parts[0] && parts[1]) {
-            prev[parts[0]] = parts[1];
+            prev[parts[0].toLocaleLowerCase()] = parts[1];
         }
         return prev;
     }, {})
