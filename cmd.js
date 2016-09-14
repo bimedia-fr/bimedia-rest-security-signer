@@ -41,10 +41,11 @@ if (argv.v || argv.version) {
 
 var private = fs.readFileSync(path.resolve(process.cwd(), defined(argv.p, argv.privatekey)));
 var Signer = require('./lib/index.js');
+var headers = defined(argv.H, argv.header, []);
 var options = {
     url: cmd,
     method: defined(argv.X, argv.request, 'GET'),
-    headers: defined(argv.H, argv.header).reduce(function(prev, curr) {
+    headers: (Array.isArray(headers) ? headers: [headers]).reduce(function(prev, curr) {
         var parts = curr.split(':');
         if (parts[0] && parts[1]) {
             prev[parts[0]] = parts[1];
