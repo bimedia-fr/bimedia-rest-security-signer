@@ -46,9 +46,9 @@ var options = {
     url: cmd,
     method: defined(argv.X, argv.request, 'GET'),
     headers: (Array.isArray(headers) ? headers: [headers]).reduce(function(prev, curr) {
-        var parts = curr.split(':');
-        if (parts[0] && parts[1]) {
-            prev[parts[0].toLocaleLowerCase()] = parts[1].trim();
+        var parts = /([^:]+):(.*)/.exec(curr);
+        if (parts[1] && parts[2]) {
+            prev[parts[1].toLocaleLowerCase()] = parts[2].trim();
         }
         return prev;
     }, {})
